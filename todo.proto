@@ -1,0 +1,31 @@
+/**
+*  Author - Shobhit Chittora
+*/
+
+syntax = "proto3";
+
+package todo_app_package;
+
+service TodoApp {
+rpc getTodo (TodoId) returns (Todo) {}
+rpc getAll (TodoEmpty) returns (Todos) {}
+rpc getAllFromStream(TodoEmpty) returns (stream Todo) {}
+}
+
+message Todos {
+repeated Todo todos = 1;
+}
+
+message Todo {
+int32 id = 1;
+string name = 2;
+bool done = 3;
+}
+
+message TodoId {
+int32 id = 1;
+}
+
+message TodoEmpty {
+
+}
