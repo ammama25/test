@@ -1,0 +1,38 @@
+
+syntax = "proto3";
+
+package admin_app_package;
+
+service AdminApp {
+    rpc listAdmins (AdminEmpty) returns (Admins) {}
+    rpc createAdmin (Admin) returns (Admin) {}
+//    rpc getAdmin (AdminId) returns (Admin) {}
+//    rpc deleteAdmin (AdminId) returns (response) {}
+//    rpc updateAdmin (Admin) returns (response) {}
+}
+
+message Admins {
+    repeated Admin admins = 1;
+}
+
+message Admin {
+    string username = 1;
+    string firstname = 2;
+    string fullname = 3;
+    string password = 4;
+    string email = 5;
+    string phonenumber = 6;
+    string position = 7;
+}
+
+message AdminId {
+    int32 id = 1;
+}
+
+message AdminEmpty {
+
+}
+
+message response {
+    string status = 1  ;
+}
